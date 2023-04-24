@@ -1,4 +1,8 @@
-#!/usr/bin/env ruby
+             <path>', 'Save the payload to a file') do |x|
+    opts[:out] = x
+  end
+
+  opt.on('-b', '--bad-chars #!/usr/bin/env ruby
 # -*- coding: binary -*-
 
 class MsfVenomError < StandardError; end
@@ -144,11 +148,7 @@ def parse_args(args)
     opts[:platform] = l
   end
 
-  opt.on('-o', '--out             <path>', 'Save the payload to a file') do |x|
-    opts[:out] = x
-  end
-
-  opt.on('-b', '--bad-chars       <list>', String, 'Characters to avoid example: \'\x00\xff\'') do |b|
+  opt.on('-o', '--out      <list>', String, 'Characters to avoid example: \'\x00\xff\'') do |b|
     init_framework
     opts[:badchars] = Rex::Text.dehex(b)
   end
